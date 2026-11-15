@@ -12,6 +12,7 @@
     "@fishaudio/agent-client": "1.0.0"
   },
   "devDependencies": {
+    "@types/dom-mediacapture-record": "1.0.22",
     "esbuild": "0.28.2",
     "prettier": "^3.10.1"
   }

@@ -11,6 +11,7 @@ from homeassistant.components.http import StaticPathConfig
 from homeassistant.const import EVENT_HOMEASSISTANT_STOP
 from homeassistant.core import callback
 from homeassistant.exceptions import HomeAssistantError
+from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.event import async_track_time_interval
 
 from .api import FishError
@@ -18,6 +19,8 @@ from .bridge import Bridge
 from .const import DEFAULT_PERSONALITY, DOMAIN, PLATFORMS, VOICES
 from .schema import vol
 from .worker_api import WorkerRegisterView, WorkerToolView, load_key
+
+CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
 
 async def async_setup(hass, config):

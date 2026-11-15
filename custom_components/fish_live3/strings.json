@@ -4,7 +4,7 @@
     "step": {
       "user": {
         "title": "Connect Fish Live3",
-        "description": "Enter a Fish Audio API key from https://fish.audio/app/api-keys. This creates a separate assistant and never changes existing voice pipelines. Live3 speaks English. Browser/Windows conversations are full duplex; existing ESPHome satellites use turn-taking compatibility mode.",
+        "description": "Enter your Fish Audio API key from the Fish developer console. This is an unofficial personal project provided as is, without warranty or guaranteed support. You are responsible for API charges. It creates a separate assistant and never changes existing voice pipelines. Live3 speaks English. Browser/Windows conversations are full duplex; existing ESPHome satellites use turn-taking compatibility mode.",
         "data": {
           "api_key": "Fish Audio API key",
           "name": "Assistant name",
