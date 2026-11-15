@@ -1,5 +1,9 @@
 # HouseTalk for Windows
 
+<img src="screenshots/settings.jpg" width="360" alt="Clean preview of Windows settings, including voice, personality, wake phrase and run on login">
+
+Interface preview with generic example settings; no home or microphone is connected. See the [main README](../README.md#screenshots) for conversation and push-to-talk views.
+
 ## Install
 
 Download the Windows x64 ZIP from Releases and extract the entire folder. The release is self-contained for .NET and requires the Microsoft Edge WebView2 Evergreen Runtime. Windows 11 normally includes WebView2; Microsoft provides its installer at https://developer.microsoft.com/microsoft-edge/webview2/.

@@ -18,6 +18,16 @@ Fish Live3 is a hosted service: your own Fish Audio API key, Agent credit and in
 
 Stock satellites take turns: they do not become full-duplex devices and cannot interrupt playback through this bridge. Follow-up listening depends on satellite firmware. Physical satellite follow-up behavior needs wider testing.
 
+## Screenshots
+
+Conversation, push-to-talk and Windows settings. These are documentation previews of the actual interface with example text; no home is connected and no microphone is opened. The settings view focuses on its controls. Your home address, login and conversation history are not used.
+
+<p>
+  <img src="docs/screenshots/conversation.jpg" width="260" alt="Conversation interface with mute, End, inactivity timeout and example transcript">
+  <img src="docs/screenshots/push-to-talk.jpg" width="260" alt="Push-to-talk interface with hold-to-talk and unmute controls">
+  <img src="docs/screenshots/settings.jpg" width="260" alt="Windows settings with voice, personality, login startup and local wake phrase controls">
+</p>
+
 ## Install in Home Assistant
 
 1. Open **Settings → Marketplace → Add from link** and enter this repository URL. Choose **Integration** if asked. Custom repository additions may require GitHub device sign-in.

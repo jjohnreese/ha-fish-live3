@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HouseTalk documentation preview</title>
+<style>
+html{background:#0c131d;color:#eef2fa;font:14px system-ui}body{margin:0;padding:18px 24px}.caption{max-width:870px;margin:0 auto 14px;color:#b5c6d7;display:flex;justify-content:space-between;gap:16px;font-size:12px}.caption strong{color:#7fe5d1}main{max-width:870px;margin:auto;zoom:.82}a{color:#85dcca}
+</style>
+<div class="caption"><strong>HouseTalk · interface preview</strong><span>Example content · no home connected · microphone never opened</span></div>
+<main><house-talk-card></house-talk-card></main>
+<script type="module">
+import '../../custom_components/fish_live3/www/house-talk.js';
+await customElements.whenDefined('house-talk-card');
+const card=document.querySelector('house-talk-card');
+const view=new URLSearchParams(location.search).get('view')||'conversation';
+const preferences={enabled:true,runOnLogin:false,url:'http://homeassistant.local:8123',wakeEnabled:true,wakeAvailable:true,wakePhrase:'Jarvis',voice:'Milo',microphoneMode:'handsfree',idleSeconds:30,personality:card.personality};
+card.bridge={
+  async call(type){if(type==='status')return {configured:true,name:'Fish Live3',voice:'Milo',supports_preferences:true};throw Error('Documentation preview: no live connection.');},
+  async host(action,patch={}){if(action==='settings'||action==='preferences')return {...preferences,...patch};return {};}
+};
+await card.loadDesktop();
+await card.refresh();
+card.notice('');
+card.start=async()=>card.notice('Documentation preview only. Install HouseTalk to start a real conversation.');
+const extra=document.createElement('style');
+if(view==='settings'){
+  extra.textContent='.stage,.controls,.mode,.conversation,.footer,.tool{display:none}.settings{margin-top:20px}.settings textarea{min-height:118px}';
+  card.$('settings').classList.remove('hidden');
+}else{
+  card.session={async setMicMuted(){},async end(){}};
+  card.startedAt=Date.now()-72000;
+  card.mode='listening';
+  card.mic.state.active=true;
+  card.mic.state.mode=view==='ptt'?'ptt':'handsfree';
+  card.$('mode').value=card.mic.state.mode;
+  card.put('example-user','user','How many lights are on?');
+  card.put('example-answer','assistant','Three lights are on. The house is behaving itself.');
+  card.$('tool').textContent='Example response · no household action performed';
+  extra.textContent='.stage{padding:20px 0 12px}.transcript{height:150px}';
+}
+card.shadowRoot.append(extra);
+card.draw();
+</script>
+</html>
