@@ -8,6 +8,7 @@ if (Test-Path -LiteralPath $destinationPath) { Remove-Item -LiteralPath $destina
 dotnet publish (Join-Path $root 'windows\HouseTalk\HouseTalk.csproj') -c Release -r win-x64 --self-contained true -o $destinationPath -p:NuGetAudit=true -p:DebugType=None -p:DebugSymbols=false
 if ($LASTEXITCODE -ne 0) { throw 'Windows build failed' }
 Copy-Item -LiteralPath (Join-Path $root 'windows\Install.ps1'),(Join-Path $root 'windows\Uninstall.ps1'),(Join-Path $root 'LICENSE'),(Join-Path $root 'DISCLAIMER.md'),(Join-Path $root 'THIRD_PARTY_NOTICES.md') -Destination $destinationPath
+Copy-Item -LiteralPath (Join-Path $root 'windows\README.md') -Destination $destinationPath
 Copy-Item -LiteralPath (Join-Path $root 'third_party') -Destination $destinationPath -Recurse
 $nugetRoot = if ($env:NUGET_PACKAGES) { $env:NUGET_PACKAGES } else { Join-Path $env:USERPROFILE '.nuget\packages' }
 $licenseDir = Join-Path $destinationPath 'third_party\windows'

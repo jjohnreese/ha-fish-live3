@@ -21,7 +21,7 @@ Stock satellites take turns: they do not become full-duplex devices and cannot i
 ## Install in Home Assistant
 
 1. Open **Settings → Marketplace → Add from link** and enter this repository URL. Choose **Integration** if asked. Custom repository additions may require GitHub device sign-in.
-2. Select **Install**. On Home Assistant 2026.11+, a first install opens the integration setup without a restart. Follow any restart repair when updating an already loaded integration.
+2. Open the repository's menu and enable **Pre-release** for this beta, then select **Install**. On Home Assistant 2026.11+, a first install opens the integration setup without a restart. Follow any restart repair when updating an already loaded integration.
 3. Enter your own Fish API key in the **Fish Live3** setup form. It stays in Home Assistant.
 4. Choose your voice. The integration creates private Fish agents and scoped home tools when you start a call.
 
