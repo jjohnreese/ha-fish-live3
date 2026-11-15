@@ -1,0 +1,36 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  checks:
+    uses: ./.github/workflows/validate.yml
+  publish:
+    needs: checks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: windows-package
+          path: dist
+      - uses: actions/download-artifact@v4
+        with:
+          name: integration-package
+          path: dist
+      - name: Verify artifacts and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python scripts/check_public_tree.py --zip dist/fish_live3.zip --zip dist/HouseTalk-Windows-x64.zip
+          (cd dist && sha256sum *.zip > SHA256SUMS.txt)
+          flags=()
+          if [[ "$RELEASE_TAG" == *b[0-9]* || "$RELEASE_TAG" == *-beta* ]]; then flags+=(--prerelease); fi
+          gh release create "$RELEASE_TAG" dist/*.zip dist/SHA256SUMS.txt --title "HouseTalk $RELEASE_TAG" --notes-file CHANGELOG.md "${flags[@]}"

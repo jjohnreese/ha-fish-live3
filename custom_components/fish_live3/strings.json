@@ -1,0 +1,40 @@
+{
+  "title": "Fish Live3",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Fish Live3",
+        "description": "Enter a Fish Audio API key from https://fish.audio/app/api-keys. This creates a separate assistant and never changes existing voice pipelines. Live3 speaks English. Browser/Windows conversations are full duplex; existing ESPHome satellites use turn-taking compatibility mode.",
+        "data": {
+          "api_key": "Fish Audio API key",
+          "name": "Assistant name",
+          "voice": "Live3 voice"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Fish rejected this API key. Check the key and its access to Agents.",
+      "cannot_connect": "Could not reach the Fish Agents API. Check connectivity and try again."
+    },
+    "abort": {
+      "single_instance_allowed": "Fish Live3 is already configured. Use its Configure button to change the API key or voice."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Fish Live3 settings",
+        "description": "Leave the API key blank to keep your existing key. It stays in Home Assistant and is never included in the dashboard or Windows app.",
+        "data": {
+          "api_key": "Fish Audio API key",
+          "name": "Assistant name",
+          "voice": "Live3 voice"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Fish rejected this API key.",
+      "cannot_connect": "Could not reach Fish."
+    }
+  }
+}

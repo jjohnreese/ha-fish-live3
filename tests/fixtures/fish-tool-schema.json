@@ -1,0 +1,168 @@
+{
+  "source": "https://github.com/fishaudio/docs/blob/main/api-reference/openapi.json",
+  "components": {
+    "schemas": {
+      "PublicAgentToolCreatePayload": {
+        "additionalProperties": false,
+        "description": "Console payload minus the folder concept (folders are console-only).",
+        "properties": {
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "default": "",
+            "maxLength": 2000,
+            "title": "Description",
+            "type": "string"
+          },
+          "tool_type": {
+            "default": "webhook",
+            "enum": [
+              "webhook",
+              "client"
+            ],
+            "title": "Tool Type",
+            "type": "string"
+          },
+          "arguments": {
+            "description": "Older shape of `parameters`: each entry becomes a required string parameter. Mutually exclusive with `parameters` in one request. Reads return both, `arguments` being the string parameters of the schema.",
+            "items": {
+              "$ref": "#/components/schemas/AgentWebhookArgumentPayload"
+            },
+            "title": "Arguments",
+            "type": "array"
+          },
+          "parameters": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Call parameters as a JSON Schema object (draft 2020-12): `type: object` (filled in when omitted), `properties`, `required`. Standard meaning throughout: `required` means the key must be present, `type: [\"string\", \"null\"]` allows null, `minLength: 1` makes a string non-empty, `enum` and `pattern` constrain the value, `default` fills a key the model left out. Mutually exclusive with `arguments` in one request. A tool created with `parameters` starts in `parameter_mode: strict`.",
+            "title": "Parameters"
+          },
+          "parameter_mode": {
+            "anyOf": [
+              {
+                "enum": [
+                  "legacy",
+                  "strict"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Whether the agent runtime checks each call's arguments against `parameters` before running the tool. `legacy` (the default for tools created with `arguments`, and every tool from before this field existed): no check, the model's arguments run as sent. `strict` (the default for tools created with `parameters`): a call that does not satisfy the schema is refused and the model is told to ask the caller for the missing information, and the LLM provider's constrained decoding is turned on where the model supports it (OpenAI models and a custom OpenAI-compatible endpoint receive the tool with `strict: true`, Gemini on the platform's native channel runs validated function calling). Changing `parameters` never changes the mode, and the mode can be changed on its own.",
+            "title": "Parameter Mode"
+          },
+          "method": {
+            "default": "POST",
+            "enum": [
+              "GET",
+              "POST",
+              "PUT",
+              "PATCH",
+              "DELETE"
+            ],
+            "title": "Method",
+            "type": "string"
+          },
+          "url": {
+            "default": "",
+            "maxLength": 4000,
+            "title": "Url",
+            "type": "string"
+          },
+          "content_type": {
+            "default": "application/json",
+            "maxLength": 128,
+            "title": "Content Type",
+            "type": "string"
+          },
+          "body_template": {
+            "default": "",
+            "description": "Request body sent for non-GET calls. `{{argument}}`, `{{system.*}}` and custom session variable placeholders are filled in at call time; a missing value becomes empty. When the body's content type is JSON (the default `application/json`, any `+json` type, or a `Content-Type` header saying so), a placeholder inside a JSON string, such as `{\"note\": \"{{note}}\"}`, is JSON-escaped, so quotes, backslashes and newlines in the value keep the body valid JSON. A placeholder outside a string, such as `{\"count\": {{count}}}`, is inserted as is. Other content types are filled in as is.",
+            "maxLength": 100000,
+            "title": "Body Template",
+            "type": "string"
+          },
+          "headers": {
+            "items": {
+              "$ref": "#/components/schemas/AgentWebhookHeaderPayload"
+            },
+            "title": "Headers",
+            "type": "array"
+          },
+          "timeout_seconds": {
+            "default": 30,
+            "maximum": 300,
+            "minimum": 1,
+            "title": "Timeout Seconds",
+            "type": "integer"
+          },
+          "error_handling": {
+            "default": "passthrough",
+            "enum": [
+              "passthrough",
+              "hide"
+            ],
+            "title": "Error Handling",
+            "type": "string"
+          },
+          "mock_responses": {
+            "items": {
+              "$ref": "#/components/schemas/AgentWebhookMockResponsePayload"
+            },
+            "title": "Mock Responses",
+            "type": "array"
+          },
+          "expects_response": {
+            "default": true,
+            "title": "Expects Response",
+            "type": "boolean"
+          },
+          "execution_mode": {
+            "default": "blocking",
+            "enum": [
+              "blocking",
+              "fire_and_forget",
+              "background"
+            ],
+            "title": "Execution Mode",
+            "type": "string"
+          },
+          "pre_tool_speech": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentToolPreToolSpeech"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "What the caller hears as this tool starts, when the agent's own reply has not said anything yet. `auto` (the default for a new tool): the platform decides for each call whether a line is worth saying, and the model writes the line when one is said. `static`: the agent says `message` as written (required, one language). `off`: nothing (what a tool created before this field reads as). Applies to blocking webhook tools and to client tools with `expects_response: true`. It is stored but not used for other tools."
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "PublicAgentToolCreatePayload",
+        "type": "object"
+      }
+    }
+  }
+}

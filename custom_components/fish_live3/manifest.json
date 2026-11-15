@@ -1,0 +1,24 @@
+{
+  "domain": "fish_live3",
+  "name": "Fish Live3",
+  "categories": [
+    "ai_voice.voice_assistants",
+    "ai_voice.speech"
+  ],
+  "codeowners": [
+    "@jjohnreese"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "conversation",
+    "http",
+    "tts",
+    "websocket_api"
+  ],
+  "documentation": "https://github.com/jjohnreese/ha-fish-live3",
+  "integration_type": "service",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/jjohnreese/ha-fish-live3/issues",
+  "requirements": [],
+  "version": "0.5.0b1"
+}

@@ -1,0 +1,21 @@
+name: Fish Live3 Satellite Worker
+version: "0.5.0b1"
+slug: fish_live3_worker
+description: Private audio transport for the separate Fish Live3 Home Assistant integration
+arch:
+  - amd64
+  - aarch64
+startup: services
+boot: auto
+init: false
+homeassistant_api: true
+map:
+  - type: homeassistant_config
+    read_only: true
+ports:
+  8789/tcp: null
+watchdog: http://[HOST]:8789/health
+options: {}
+schema: {}
+url: https://github.com/jjohnreese/ha-fish-live3/tree/main/fish_live3_worker
+homeassistant: "2026.11.0"

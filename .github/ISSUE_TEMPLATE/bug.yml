@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a problem without credentials or private home data
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [Home Assistant integration, Satellite worker, Dashboard card, Windows app]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: HouseTalk and Home Assistant versions
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What happened and how to reproduce it
+      description: Include install method and device/firmware if relevant. Do not include API keys, DPAPI files, full HA diagnostics, raw audio or private transcripts.
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Short redacted error, if available
