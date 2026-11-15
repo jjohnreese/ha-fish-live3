@@ -3,6 +3,7 @@
 import asyncio
 import json
 import sys
+import time
 import types
 from pathlib import Path
 from unittest.mock import AsyncMock
@@ -276,7 +277,7 @@ def test_audio_cache_is_bounded_and_expires():
     for i in range(30):
         item.cache_audio(str(i), b"RIFF")
     assert len(item.audio) == 24 and item.get_audio("29") == b"RIFF"
-    item.audio["29"] = (0, b"RIFF")
+    item.audio["29"] = (time.monotonic() - 181, b"RIFF")
     assert item.get_audio("29") is None
 
 
