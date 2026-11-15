@@ -25,7 +25,7 @@ NAMES = {"home-assistant.json", "fish_live3_worker_secret", "secrets.yaml"}
 PATTERNS = [
     re.compile(rb"gh[pousr]_[A-Za-z0-9]{24,}"),
     re.compile(rb"github_pat_[A-Za-z0-9_]{30,}"),
-    re.compile(rb"sk-[A-Za-z0-9_-]{24,}"),
+    re.compile(rb"(?<![A-Za-z0-9_-])sk-[A-Za-z0-9_-]{24,}"),
     re.compile(rb"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     re.compile(rb"eyJ[A-Za-z0-9_-]{12,}\.[A-Za-z0-9_-]{12,}\.[A-Za-z0-9_-]{12,}"),
     re.compile(
