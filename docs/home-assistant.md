@@ -9,7 +9,11 @@
 
 ## Install
 
-In **Settings → Marketplace**, select **Add from link** and add `https://github.com/jjohnreese/ha-fish-live3` as an Integration. Install it and follow its setup flow. A first Marketplace install on HA 2026.11 does not need a restart; updating an already loaded integration does. Manual installs copy only `custom_components/fish_live3` to your own `custom_components` directory and restart HA before adding the integration. The Marketplace is built in; do not install HACS separately on this version.
+In **Settings → Marketplace**, search for **Fish Live3**, select **HouseTalk · Fish Live3**, and install it. Follow its setup flow. A first Marketplace install on HA 2026.11 does not need a restart; updating an already loaded integration does.
+
+If it is not listed in search yet, use **Add from link** with `https://github.com/jjohnreese/ha-fish-live3` and choose **Integration** if asked. This is the fallback route; custom repository additions may require GitHub device sign-in.
+
+For a manual install, copy only `custom_components/fish_live3` to your own `custom_components` directory and restart HA before adding the integration. The Marketplace is built in; do not install HACS separately on this version.
 
 Add **Fish Live3** from Devices & services. Paste your API key into its password field. Never put it into dashboard YAML, a Windows config file, an automation example, or a GitHub issue.
 

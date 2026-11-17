@@ -30,10 +30,12 @@ Conversation, push-to-talk and Windows settings. These are documentation preview
 
 ## Install in Home Assistant
 
-1. Open **Settings → Marketplace → Add from link** and enter this repository URL. Choose **Integration** if asked. Custom repository additions may require GitHub device sign-in.
+1. Open **Settings → Marketplace**, search for **Fish Live3**, and select **HouseTalk · Fish Live3**.
 2. Select **Install** to get the latest regular release; opting into prereleases is not required. On Home Assistant 2026.11+, a first install opens the integration setup without a restart. Follow any restart repair when updating an already loaded integration.
 3. Enter your own Fish API key in the **Fish Live3** setup form. It stays in Home Assistant.
 4. Choose your voice. The integration creates private Fish agents and scoped home tools when you start a call.
+
+If search does not show it yet, use **Settings → Marketplace → Add from link** with `https://github.com/jjohnreese/ha-fish-live3` as a fallback. Choose **Integration** if asked. Custom repository additions may require GitHub device sign-in.
 
 For a manual install, copy `custom_components/fish_live3` into your HA configuration folder, restart, then add **Fish Live3** in Devices & services. A separate HACS installation is not needed on Home Assistant 2026.11+.
 
@@ -89,7 +91,7 @@ Read [security and privacy](SECURITY.md) before installing. Fish receives conver
 
 For problems, open a [redacted bug report](https://github.com/jjohnreese/ha-fish-live3/issues/new/choose). Include which component you use and its version. See [troubleshooting](docs/troubleshooting.md), [development](CONTRIBUTING.md), [release notes](CHANGELOG.md) and [known limitations](docs/limitations.md).
 
-Public custom-repository installation is supported. Inclusion in the default Marketplace/HACS catalog is a separate maintainer-reviewed process; this README does not imply acceptance into HACS defaults or Home Assistant Core.
+The [default Marketplace/HACS catalog submission has been merged](https://github.com/hacs/default/pull/14252). If it is not visible in search yet, use the repository-link fallback above. This remains an independent custom integration, separate from Home Assistant Core.
 
 ## License
 
