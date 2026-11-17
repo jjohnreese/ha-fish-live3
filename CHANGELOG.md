@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.0
+
+First full, non-prerelease community release, available without opting into beta versions in HACS/Marketplace.
+
+- Release the existing beta feature set with matching 0.5.0 versions for the integration, satellite worker and Windows app.
+- Update installation instructions for the regular release and include the clean interface screenshot documentation.
+- No feature behavior changes from 0.5.0 beta 1. Existing privacy notices, personal-project disclaimer and known satellite limitations still apply.
+
+The Windows ZIP includes its installer, quick start and dependency licenses. Save your own Fish API key only in Home Assistant; the app never needs it. See the [setup guide](https://github.com/jjohnreese/ha-fish-live3#install-in-home-assistant), [pricing estimates](https://github.com/jjohnreese/ha-fish-live3/blob/main/docs/pricing.md) and [disclaimer](https://github.com/jjohnreese/ha-fish-live3/blob/main/DISCLAIMER.md).
+
 ## 0.5.0 beta 1
 
 First public community beta.

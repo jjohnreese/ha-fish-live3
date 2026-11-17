@@ -1,6 +1,6 @@
 # Current limits
 
-- Community beta; independent of Fish Audio, Home Assistant and the Marketplace/HACS catalog.
+- Initial community release; independent of Fish Audio, Home Assistant and the Marketplace/HACS catalog.
 - Personal project provided as is, without warranty, guaranteed support or maintenance. See the [disclaimer](../DISCLAIMER.md).
 - Fish account, Agent credit and internet access required. Prices and provider limits can change; check your Fish account.
 - Live3 speaks English. The integration's conversational tool requests use English.

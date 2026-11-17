@@ -1,5 +1,5 @@
 name: Fish Live3 Satellite Worker
-version: "0.5.0b1"
+version: "0.5.0"
 slug: fish_live3_worker
 description: Private audio transport for the separate Fish Live3 Home Assistant integration
 arch:

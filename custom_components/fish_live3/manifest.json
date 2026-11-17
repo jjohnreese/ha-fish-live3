@@ -20,5 +20,5 @@
   "iot_class": "cloud_push",
   "issue_tracker": "https://github.com/jjohnreese/ha-fish-live3/issues",
   "requirements": [],
-  "version": "0.5.0b1"
+  "version": "0.5.0"
 }

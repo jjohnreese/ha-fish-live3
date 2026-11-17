@@ -13,7 +13,7 @@ In **Settings → Marketplace**, select **Add from link** and add `https://githu
 
 Add **Fish Live3** from Devices & services. Paste your API key into its password field. Never put it into dashboard YAML, a Windows config file, an automation example, or a GitHub issue.
 
-This first release is a beta. Enable the repository's **Pre-release** switch in the Marketplace menu to select it. A manual install of the release ZIP is also available. See Home Assistant's [release guide](https://contributors.home-assistant.io/marketplace/guides/releases/).
+Version 0.5.0 is a regular, non-prerelease release; leave the repository's **Pre-release** switch off for normal installation. A manual install of the release ZIP is also available. See Home Assistant's [release guide](https://contributors.home-assistant.io/marketplace/guides/releases/).
 
 The integration adds a conversation entity and a reply-voice TTS entity. Creating an entry alone does not operate devices or change your preferred pipeline. Fish agents and tools are provisioned privately on the first call. Other voice choices may create additional private agents owned by this integration; this avoids changing another client's voice during a call.
 

@@ -6,7 +6,7 @@ Talk naturally to your home from a Home Assistant dashboard or Windows PC. Use t
 [![Open in Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=jjohnreese&repository=ha-fish-live3&category=integration)
 [![Add worker repository](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/jjohnreese/ha-fish-live3)
 
-**Unofficial personal project · early beta.** HouseTalk is independently developed and is not affiliated with, endorsed by, sponsored by or supported by Fish Audio or the Home Assistant project. It connects to Fish Audio's hosted Agents API; it is not an official integration or an API supplied by this project. Provided **as is**, without warranty, guaranteed support or a promise of continued maintenance. See the [project disclaimer](DISCLAIMER.md) and [MIT license](LICENSE).
+**Unofficial personal project · initial community release.** HouseTalk is independently developed and is not affiliated with, endorsed by, sponsored by or supported by Fish Audio or the Home Assistant project. It connects to Fish Audio's hosted Agents API; it is not an official integration or an API supplied by this project. Provided **as is**, without warranty, guaranteed support or a promise of continued maintenance. See the [project disclaimer](DISCLAIMER.md) and [MIT license](LICENSE).
 
 Fish Live3 is a hosted service: your own Fish Audio API key, Agent credit and internet access are required. Users are responsible for their accounts, API charges and home configuration. Live3 currently speaks English.
 
@@ -31,7 +31,7 @@ Conversation, push-to-talk and Windows settings. These are documentation preview
 ## Install in Home Assistant
 
 1. Open **Settings → Marketplace → Add from link** and enter this repository URL. Choose **Integration** if asked. Custom repository additions may require GitHub device sign-in.
-2. Open the repository's menu and enable **Pre-release** for this beta, then select **Install**. On Home Assistant 2026.11+, a first install opens the integration setup without a restart. Follow any restart repair when updating an already loaded integration.
+2. Select **Install** to get the latest regular release; opting into prereleases is not required. On Home Assistant 2026.11+, a first install opens the integration setup without a restart. Follow any restart repair when updating an already loaded integration.
 3. Enter your own Fish API key in the **Fish Live3** setup form. It stays in Home Assistant.
 4. Choose your voice. The integration creates private Fish agents and scoped home tools when you start a call.
 
